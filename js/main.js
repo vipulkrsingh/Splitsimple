@@ -1,4 +1,31 @@
 $(document).ready(function() {
+
+$.ajax({
+  type: 'POST',
+  url: '../main.php',
+  data: "q=1",
+  success: function(data){	
+   alert(data);
+  },
+  //dataType:'json'
+});
+
+
+jQuery("abbr.timeago").timeago();
+
+
+var markup = "<tr><td colspan='2'>${Name}</td><td>Released: ${ReleaseYear}</td><td>Director: ${Director}</td></tr>"
+
+/* Compile markup string as a named template */
+$.template( "movieTemplate", markup );
+
+/* Render the named template */
+$( "#showBtn" ).click( function() {
+  $( "#movieList" ).empty();
+  $.tmpl( "movieTemplate", movies ).appendTo( "#movieList" );
+});
+
+/*
 	$('#inputpanel')[0].reset();
 	$('#debittoggle').live("click",function(){ 
       
@@ -8,7 +35,6 @@ $(document).ready(function() {
 		});
  });
 	
-	jQuery("abbr.timeago").timeago();
   $('#submit').click(function(){
   $.ajax({
   type: 'POST',
@@ -55,5 +81,5 @@ if(window.confirm("Are you sure you want to delete this?"))
 
   });
   
-  
+*/  
   });

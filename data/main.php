@@ -1,6 +1,10 @@
 <?php
 require_once 'dbconfig.php';
 
+$q = $_POST['q'];
+
+if($q === '0')
+{
 $gid = $_POST['groupid'];
 $uid = $_POST['userid'];
 $amount = $_POST['amount'];
@@ -37,7 +41,6 @@ if($value != $credit){
  else{
  $ownerSplit = $amount + $splitAmount;;
  }
- 
  }
  
  if($credit == $uid) $apVal = 1;
@@ -55,5 +58,10 @@ if($value != $credit){
  }
  
 echo $trid;
+ }
  
+ else if($q === '1'){
+ 
+ echo "Blah";
+ }
 ?>
